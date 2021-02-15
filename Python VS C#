@@ -29,17 +29,20 @@ class Solution:
     def addStrings(self, num1: str, num2: str) -> str:
         str1 = list(num1)
         str2 = list(num2)
-        multi = 1
-        amount = 0
+        amount = ""
+        keep = 0
         while str1 or str2:
             val1 = val2 = 0
             if str1:
                 val1 = int(str1.pop())
             if str2:
                 val2 = int(str2.pop())
-            amount += (val1 + val2) * multi
-            multi *= 10
-        return "{}".format(amount)	
+            full_val = val1 + val2 + keep
+            amount += str(full_val % 10)
+            keep = int(full_val / 10)
+        if keep:
+            amount += str(keep)
+        return amount[::-1]
 		
 
 public class Solution {
