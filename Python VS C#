@@ -24,6 +24,22 @@ class Solution:
             sum+=str(1)
             
         return sum[::-1]
+	
+class Solution:
+    def addStrings(self, num1: str, num2: str) -> str:
+        str1 = list(num1)
+        str2 = list(num2)
+        multi = 1
+        amount = 0
+        while str1 or str2:
+            val1 = val2 = 0
+            if str1:
+                val1 = int(str1.pop())
+            if str2:
+                val2 = int(str2.pop())
+            amount += (val1 + val2) * multi
+            multi *= 10
+        return "{}".format(amount)	
 		
 
 public class Solution {
